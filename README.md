@@ -1,1 +1,1 @@
-# frugal_fortune
+# FrugalFortune
