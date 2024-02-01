@@ -26,6 +26,7 @@ TLDR: Better version of Mint that doesn't sell your data
 * [![Express][Express]][Express-url]
 * [![Postgres][Postgres]][Postgres-url]
 * [![Node][Node]][Node-url]
+* [![Docker][Docker]][Docker-url]
 * [![AWS][AWS]][AWS-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -42,5 +43,7 @@ TLDR: Better version of Mint that doesn't sell your data
 [Postgres-url]: https://www.postgresql.org/
 [Node]: https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white
 [Node-url]: https://nodejs.org/en
+[Docker]: https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white
+[Docker-url]: https://www.docker.com/
 [AWS]: https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white
 [AWS-url]: https://aws.amazon.com/
