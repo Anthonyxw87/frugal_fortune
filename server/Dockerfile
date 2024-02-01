@@ -13,8 +13,6 @@ RUN npm install
 # Copy the rest of the files to the working directory
 COPY . .
 
-ENV PORT = 8080
-
 # Expose the port 8080
 EXPOSE 8080
 
