@@ -32,6 +32,41 @@ TLDR: Better version of Mint that doesn't sell your data
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Get Started
+### Clone
+```
+git clone https://github.com/Anthonyxw87/frugal_fortune.git
+cd frugal_fortune
+```
+
+### Install Docker
+1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+2. Install `docker` and `docker-compose`
+    ```
+    $ brew install docker
+    $ brew install docker-compose
+    ```
+3.  Open the Docker Desktop app to start Docker Engine
+
+ 
+#### ***Make sure to have local host ports 3000, 8080, and 5431 open**
+
+### Create Images on Docker (do only once at beginning)
+1. cd to project root directory
+2. run:
+   ```
+   docker-compose up
+   ```
+*automatically starts containers
+
+### To Run Application (start Docker containers)
+```
+docker-compose start
+```
+
+### To Stop Application (stop Docker containers)
+```
+docker-compose stop
+```
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
