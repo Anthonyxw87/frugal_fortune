@@ -1,5 +1,7 @@
+import { NavBar } from "../components/nav-bar";
+
 export default function Trends() {
     return (
-        <div>Trends</div>
+        <NavBar title="Trends" />
     );
 }

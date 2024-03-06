@@ -29,9 +29,9 @@ const Drawer = styled(MuiDrawer)({
 });
 
 
-export const NavBar = (props) => {
+export const NavBar = ({ title = 'Dashboard' }) => {
     return (
-        <Box sx={{ display: 'flex' }}>
+        <>
             <CssBaseline />
             <AppBar position="absolute"
                 sx={{
@@ -47,7 +47,7 @@ export const NavBar = (props) => {
                         sx={{ flexGrow: 1 }}
                         style={{ fontWeight: 'bold' }}
                     >
-                        Dashboard
+                        {title}
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -75,6 +75,6 @@ export const NavBar = (props) => {
                 </List>
                 <Divider />
             </Drawer>
-        </Box>
+        </>
     );
 };

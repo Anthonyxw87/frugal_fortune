@@ -1,5 +1,7 @@
+import { NavBar } from "../components/nav-bar";
+
 export default function Transactions() {
     return (
-        <div>Transactions</div>
+        <NavBar title="Transactions" />
     );
 }
