@@ -9,25 +9,25 @@ import AnalyticsIcon from '@mui/icons-material/Analytics';
 
 export const sideListItems = (
     <React.Fragment>
-        <ListItemButton href='/'>
+        <ListItemButton href='/overview'>
             <ListItemIcon>
                 <DashboardIcon />
             </ListItemIcon>
             <ListItemText primary="Overview" />
         </ListItemButton>
-        <ListItemButton>
+        <ListItemButton href='/transactions'>
             <ListItemIcon>
                 <PaidIcon />
             </ListItemIcon>
             <ListItemText primary="Transactions" />
         </ListItemButton>
-        <ListItemButton>
+        <ListItemButton href='/trends'>
             <ListItemIcon>
                 <TrendingUpIcon />
             </ListItemIcon>
             <ListItemText primary="Trends" />
         </ListItemButton>
-        <ListItemButton>
+        <ListItemButton href='/investments'>
             <ListItemIcon>
                 <AnalyticsIcon />
             </ListItemIcon>
