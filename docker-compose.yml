@@ -16,19 +16,5 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
-    environment:
-      POSTGRES_HOST: db  
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
-      POSTGRES_DB: budget-app-db
-    depends_on:
-      - db
-
-  db:
-    image: postgres:latest
-    ports:
-      - "5431:5431"
-    environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
-      POSTGRES_DB: budget-app-db
+    env_file:
+      - server/.env

@@ -29,7 +29,7 @@ const Drawer = styled(MuiDrawer)({
 });
 
 
-export const NavBar = ({ title = 'Dashboard' }) => {
+export const NavBar = ({ title }) => {
     return (
         <>
             <CssBaseline />

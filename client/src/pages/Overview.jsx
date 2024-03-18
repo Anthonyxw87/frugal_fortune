@@ -8,7 +8,7 @@ import Paper from '@mui/material/Paper';
 export default function Overview() {
     return (
         <Box sx={{ display: 'flex' }}>
-            <NavBar />
+            <NavBar title="Overview"/>
             <Box sx={{ flexGrow: 1, p: 3 }}>
                 {/* Main content */}
                 <Container maxWidth="lg" sx={{ mt: 4 }}>
