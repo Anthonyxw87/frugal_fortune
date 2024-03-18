@@ -1,12 +1,34 @@
 require("dotenv").config({ path: __dirname + "/.env" });
 const express = require('express');
+const fs = require('fs');
 const pool = require(__dirname + "/config/db.config.js");
 
 const app = express();
 
 const PORT = process.env.PORT || 8080;
 
-//Functions
+// Function to execute SQL script
+const executeSqlScript = () => {
+    fs.readFile(__dirname + '/database/SQL_create_tables_script.sql', 'utf8', (err, data) => {
+        if (err) {
+            console.error("Error reading SQL script:", err);
+            return;
+        }
+        // Execute the SQL script
+        pool.query(data, (error, results) => {
+            if (error) {
+                console.error("Error executing SQL script:", error);
+            } else {
+                console.log("Table created successfully");
+            }
+        });
+    });
+};
+
+// Execute the SQL script when the application starts
+executeSqlScript();
+
+// Function
 const getProducts = (req, res) => {
     pool.query('SELECT * FROM products', (error, products) => {
         if (error) {

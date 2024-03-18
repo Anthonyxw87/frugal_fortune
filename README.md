@@ -38,6 +38,38 @@ git clone https://github.com/Anthonyxw87/frugal_fortune.git
 cd frugal_fortune
 ```
 
+### Local Database 
+1. Install Postgres and/or pgAdmin, or any preferred Database Management System.
+2. Create a database on your local machine (localhost) and securely note down the credentials.
+3. In the server directory, create a .env file and populate it with your database information as follows:
+
+```
+# .env file
+# DATABASE_INFO
+POSTGRES_HOST=host.docker.internal
+POSTGRES_PORT=                  # 'your db port'; default is 5432
+POSTGRES_DB=                    # 'your db name'       
+POSTGRES_USER=                  # 'your user name'
+POSTGRES_PASSWORD=              # 'your password'
+POSTGRES_SSLMODE=prefer
+POSTGRES_CONNECT_TIMEOUT=10
+
+# SERVER_INFO
+PORT=                           # ' your server port'; default is 8080
+```
+
+<div align="center">
+  <a href="https://example.com">
+    <img src="" alt="pgAdmin example screenshot" width="500">
+  </a>
+</div>
+
+1. Test if connection to database is establish by going to this link:
+```
+localhost:8080/testdb
+```
+*Should return connection successful message otherwise, go back and fix above
+
 ### Install Docker
 1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 2. Install `docker` and `docker-compose`
