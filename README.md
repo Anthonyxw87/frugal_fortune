@@ -64,11 +64,23 @@ PORT=                           # ' your server port'; default is 8080
   </a>
 </div>
 
-1. Test if connection to database is establish by going to this link:
-```
-localhost:8080/testdb
-```
-*Should return connection successful message otherwise, go back and fix above
+
+4. Test if connection to database is establish by going doing this
+   
+    1. For this test only:
+        In your .env file, change your host name to "localhost" (change back to host.docker.internal after this test is done)
+    2. cd to server directory
+    3. run 
+          ```
+          node index.js
+          ```
+    4. Then go to this link:
+        ```
+        localhost:8080/testdb
+        ```
+    *Should return connection successful message otherwise, go back and fix above
+    
+    5. exit (ctrl-c) the server program; also remember to change host name in .env file back to host.docker.internal
 
 ### Install Docker
 1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/)
@@ -80,7 +92,7 @@ localhost:8080/testdb
 3.  Open the Docker Desktop app to start Docker Engine
 
  
-#### ***Make sure to have local host ports 3000, 8080, and 5431 open**
+#### ***Make sure to have local host ports 3000, 8080, and 5432 open**
 
 ### Create Images on Docker (do only once at beginning)
 1. cd to project root directory
