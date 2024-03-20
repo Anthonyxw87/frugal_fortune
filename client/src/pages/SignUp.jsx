@@ -9,14 +9,15 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useNavigate } from "react-router-dom";
+import { signUpUser } from '../API/auth';
 
 export default function SignUp() {
-    const initialUser = { id: null, firstName: '', lastName: '', email: '', password: '', error: null }
-
-    const [user, setUser] = useState(initialUser);
+    const [user, setUser] = useState({ id: null, firstName: '', lastName: '', email: '', password: '' });
     const [isLoading, setIsLoading] = useState(false);
-
+    const [error, setError] = useState('')
     const navigate = useNavigate();
+
+    const isValid = user.firstName === '' || user.lastName === '' || user.email === '' || user.password === '';
 
     // Handle change in form fields
     const handleChange = e => {
@@ -26,10 +27,28 @@ export default function SignUp() {
 
     // Handle submit event on form
     const handleSubmit = async (event) => {
+        event.preventDefault();
+        setIsLoading(true);
+        setError('');
 
+        try {
+            // Validate form fields
+            if (isValid) {
+                throw new Error('All fields are required');
+            }
+
+            // Make API call to sign up user
+            const userData = await signUpUser(user);
+
+            // Redirect to overview page on successful sign up
+
+        }
+        catch (error) {
+            setError(error.message);
+        } finally {
+            setIsLoading(false);
+        }
     }
-
-    const isValid = user.firstName === '' || user.lastName === '' || user.email === '' || user.password === '';
 
     return (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
@@ -115,6 +134,7 @@ export default function SignUp() {
                         </Grid>
                     </Grid>
                 </Box>
+                {error && <Typography color="error" variant="body2">{error}</Typography>}
             </Container>
         </div>
     );

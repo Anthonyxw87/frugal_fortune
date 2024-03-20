@@ -2,8 +2,17 @@ require("dotenv").config({ path: __dirname + "/.env" });
 const express = require('express');
 const fs = require('fs');
 const pool = require(__dirname + "/config/db.config.js");
+const bodyParser = require('body-parser'); // middleware for parsing request bodies
+const cors = require('cors'); // middleware for enabling cross-origin resource sharing
 
 const app = express();
+
+// enable Cross-Origin Resource Sharing (CORS) middleware
+app.use(cors());
+
+// enable body-parser middleware for parsing request bodies as JSON objects
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 8080;
 
@@ -28,7 +37,7 @@ const executeSqlScript = () => {
 // Execute the SQL script when the application starts
 executeSqlScript();
 
-// Function
+// Function to sign in to an user account
 const getProducts = (req, res) => {
     pool.query('SELECT * FROM products', (error, products) => {
         if (error) {
@@ -38,11 +47,32 @@ const getProducts = (req, res) => {
     })
 }
 
+// Function to sign up a user account
+const signUp = (req, res) => {
+    // extract user data from request body
+    const { firstName, lastName, email, password } = req.body;
+
+    // insert user data into database using connection pool
+    pool.query('INSERT INTO Users (firstName, lastName, email, password) VALUES ($1, $2, $3, $4)',
+        [firstName, lastName, email, password],
+        (error, results) => {
+            if (error) {
+                console.error('Error signing up user:', error);
+                return res.status(500).json({ error: 'Failed to sign up user' });
+            }
+
+            // If insertion was successful, send a success response
+            return res.status(201).json({ message: 'User signed up successfully' });
+        });
+}
+
 app.get("/", (req, res) => {
     res.send("Hello World!");
 });
 
-app.get('/products', getProducts)
+app.get('/products', getProducts);
+
+app.post('/sign-up', signUp);
 
 // Route to test database connection
 app.get("/testdb", (req, res) => {
