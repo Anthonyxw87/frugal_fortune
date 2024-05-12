@@ -66,6 +66,14 @@ const signUp = (req, res) => {
         });
 }
 
+// Function to sign in to a user account
+const signIn = (req, res) => {
+    // extract user data from request body
+    const { email, password } = req.body
+
+
+}
+
 app.get("/", (req, res) => {
     res.send("Hello World!");
 });

@@ -9,7 +9,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useNavigate } from "react-router-dom";
-import { signUpUser } from '../API/auth';
+import { SignUpUser } from '../API/auth';
 
 export default function SignUp() {
     const [user, setUser] = useState({ id: null, firstName: '', lastName: '', email: '', password: '' });
@@ -38,10 +38,10 @@ export default function SignUp() {
             }
 
             // Make API call to sign up user
-            const userData = await signUpUser(user);
+            const userData = await SignUpUser(user);
 
-            // Redirect to overview page on successful sign up
-
+            // Navigate to overview page on successful sign up
+            navigate('/overview');
         }
         catch (error) {
             setError(error.message);

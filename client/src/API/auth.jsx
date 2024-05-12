@@ -2,7 +2,7 @@
 const CLIENT_URL = 'http://localhost:8080';
 
 // This function makes an API call to sign up a user
-export async function signUpUser(user) {
+export async function SignUpUser(user) {
     // Make request to sign up endpoint on backend
     try {
         const response = await fetch(`${CLIENT_URL}/sign-up`, {
