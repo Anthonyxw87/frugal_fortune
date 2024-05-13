@@ -15,9 +15,9 @@ export default function SignUp() {
     const [user, setUser] = useState({ id: null, firstName: '', lastName: '', email: '', password: '' });
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('')
-    const navigate = useNavigate();
+    let navigate = useNavigate();
 
-    const isValid = user.firstName === '' || user.lastName === '' || user.email === '' || user.password === '';
+    const isNotValid = user.firstName === '' || user.lastName === '' || user.email === '' || user.password === '';
 
     // Handle change in form fields
     const handleChange = e => {
@@ -33,7 +33,7 @@ export default function SignUp() {
 
         try {
             // Validate form fields
-            if (isValid) {
+            if (isNotValid) {
                 throw new Error('All fields are required');
             }
 
@@ -121,7 +121,7 @@ export default function SignUp() {
                         fullWidth
                         variant="contained"
                         sx={{ mt: 3, mb: 2 }}
-                        disabled={isLoading || isValid}
+                        disabled={isLoading || isNotValid}
                         onClick={handleSubmit}
                     >
                         Sign Up
